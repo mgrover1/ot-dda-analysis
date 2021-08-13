@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10 November Case &#8212; Overshooting Top Dual Doppler Analysis</title>
+    <title>Track OTs &#8212; Overshooting Top Dual Doppler Analysis</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -87,6 +87,53 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Overshooting Tops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="process_ot_data.html">
+   Overshooting Top Area Quantification
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Dual Doppler Analysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dual_doppler_preprocess.html">
+   Preprocess Dual Doppler Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dual_doppler_analysis.html">
+   Dual Doppler Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plot_dual_doppler_output.html">
+   Plot Dual Doppler Output
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Uncertainty
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ot_ua_uncertainty.html">
+   Overshooting Top Area - Updraft Area Uncertainty
+  </a>
+ </li>
+</ul>
+
     </div>
 </nav> <!-- To handle the deprecated key -->
 
@@ -173,27 +220,27 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#november-case">
    10 November Case
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    12 November Case
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#december-case">
    14 December Case
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#all-ots">
    All OTs
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#linear-regression">
    Linear Regression
   </a>
@@ -209,7 +256,9 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="track-ots">
+<h1>Track OTs<a class="headerlink" href="#track-ots" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
 
@@ -249,7 +298,7 @@
 </div>
 </div>
 <div class="section" id="november-case">
-<h1>10 November Case<a class="headerlink" href="#november-case" title="Permalink to this headline">¶</a></h1>
+<h2>10 November Case<a class="headerlink" href="#november-case" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;ot_output/20181110/20181110*&#39;</span><span class="p">))],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
@@ -456,7 +505,7 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_18_1.png" src="_images/Track_OTs_18_1.png" />
+<img alt="_images/Track_OTs_19_1.png" src="_images/Track_OTs_19_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -485,7 +534,7 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x2b96c764bc88&gt;]
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_21_1.png" src="_images/Track_OTs_21_1.png" />
+<img alt="_images/Track_OTs_22_1.png" src="_images/Track_OTs_22_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -528,7 +577,7 @@ found this many stubs: 116
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_23_0.png" src="_images/Track_OTs_23_0.png" />
+<img alt="_images/Track_OTs_24_0.png" src="_images/Track_OTs_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -562,7 +611,7 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_26_1.png" src="_images/Track_OTs_26_1.png" />
+<img alt="_images/Track_OTs_27_1.png" src="_images/Track_OTs_27_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -612,7 +661,7 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_29_1.png" src="_images/Track_OTs_29_1.png" />
+<img alt="_images/Track_OTs_30_1.png" src="_images/Track_OTs_30_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -631,7 +680,7 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_30_1.png" src="_images/Track_OTs_30_1.png" />
+<img alt="_images/Track_OTs_31_1.png" src="_images/Track_OTs_31_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -650,7 +699,7 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_31_1.png" src="_images/Track_OTs_31_1.png" />
+<img alt="_images/Track_OTs_32_1.png" src="_images/Track_OTs_32_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -660,7 +709,7 @@ found this many stubs: 116
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_32_0.png" src="_images/Track_OTs_32_0.png" />
+<img alt="_images/Track_OTs_33_0.png" src="_images/Track_OTs_33_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -728,7 +777,7 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Duration 10 November 2018 \n 1500 - 2359 UTC (Count = 179)&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_37_1.png" src="_images/Track_OTs_37_1.png" />
+<img alt="_images/Track_OTs_38_1.png" src="_images/Track_OTs_38_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -738,7 +787,7 @@ found this many stubs: 116
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_38_0.png" src="_images/Track_OTs_38_0.png" />
+<img alt="_images/Track_OTs_39_0.png" src="_images/Track_OTs_39_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -757,7 +806,7 @@ found this many stubs: 116
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_39_1.png" src="_images/Track_OTs_39_1.png" />
+<img alt="_images/Track_OTs_40_1.png" src="_images/Track_OTs_40_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -803,7 +852,7 @@ found this many stubs: 116
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_40_0.png" src="_images/Track_OTs_40_0.png" />
+<img alt="_images/Track_OTs_41_0.png" src="_images/Track_OTs_41_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -843,7 +892,7 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n10 November 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_41_1.png" src="_images/Track_OTs_41_1.png" />
+<img alt="_images/Track_OTs_42_1.png" src="_images/Track_OTs_42_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -887,13 +936,13 @@ found this many stubs: 116
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n10 November 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_42_1.png" src="_images/Track_OTs_42_1.png" />
+<img alt="_images/Track_OTs_43_1.png" src="_images/Track_OTs_43_1.png" />
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="id1">
-<h1>12 November Case<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h2>12 November Case<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;ot_output/20181112/20181112*&#39;</span><span class="p">))],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
@@ -1069,7 +1118,7 @@ found this many stubs: 142
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Duration 12 November 2018 \n 0000 - 0600 UTC (Count = 563)&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_50_1.png" src="_images/Track_OTs_50_1.png" />
+<img alt="_images/Track_OTs_51_1.png" src="_images/Track_OTs_51_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1088,7 +1137,7 @@ found this many stubs: 142
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_51_1.png" src="_images/Track_OTs_51_1.png" />
+<img alt="_images/Track_OTs_52_1.png" src="_images/Track_OTs_52_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1107,7 +1156,7 @@ found this many stubs: 142
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_52_1.png" src="_images/Track_OTs_52_1.png" />
+<img alt="_images/Track_OTs_53_1.png" src="_images/Track_OTs_53_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1126,7 +1175,7 @@ found this many stubs: 142
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_53_1.png" src="_images/Track_OTs_53_1.png" />
+<img alt="_images/Track_OTs_54_1.png" src="_images/Track_OTs_54_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1187,7 +1236,7 @@ found this many stubs: 142
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_58_1.png" src="_images/Track_OTs_58_1.png" />
+<img alt="_images/Track_OTs_59_1.png" src="_images/Track_OTs_59_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1227,7 +1276,7 @@ found this many stubs: 142
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n12 November 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_59_1.png" src="_images/Track_OTs_59_1.png" />
+<img alt="_images/Track_OTs_60_1.png" src="_images/Track_OTs_60_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1271,12 +1320,12 @@ found this many stubs: 142
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n12 November 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_60_1.png" src="_images/Track_OTs_60_1.png" />
+<img alt="_images/Track_OTs_61_1.png" src="_images/Track_OTs_61_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="december-case">
-<h1>14 December Case<a class="headerlink" href="#december-case" title="Permalink to this headline">¶</a></h1>
+<h2>14 December Case<a class="headerlink" href="#december-case" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;ot_output/20181214/20181214*&#39;</span><span class="p">))],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
@@ -1430,7 +1479,7 @@ found this many stubs: 988
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Duration 14 December 2018 \n 0000 - 0635 UTC (Count = 710)&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_66_1.png" src="_images/Track_OTs_66_1.png" />
+<img alt="_images/Track_OTs_67_1.png" src="_images/Track_OTs_67_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1449,7 +1498,7 @@ found this many stubs: 988
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_67_1.png" src="_images/Track_OTs_67_1.png" />
+<img alt="_images/Track_OTs_68_1.png" src="_images/Track_OTs_68_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1468,7 +1517,7 @@ found this many stubs: 988
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_68_1.png" src="_images/Track_OTs_68_1.png" />
+<img alt="_images/Track_OTs_69_1.png" src="_images/Track_OTs_69_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1487,7 +1536,7 @@ found this many stubs: 988
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_69_1.png" src="_images/Track_OTs_69_1.png" />
+<img alt="_images/Track_OTs_70_1.png" src="_images/Track_OTs_70_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1528,7 +1577,7 @@ found this many stubs: 988
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n14 December 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_70_1.png" src="_images/Track_OTs_70_1.png" />
+<img alt="_images/Track_OTs_71_1.png" src="_images/Track_OTs_71_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1572,13 +1621,13 @@ found this many stubs: 988
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n14 December 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_71_1.png" src="_images/Track_OTs_71_1.png" />
+<img alt="_images/Track_OTs_72_1.png" src="_images/Track_OTs_72_1.png" />
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="all-ots">
-<h1>All OTs<a class="headerlink" href="#all-ots" title="Permalink to this headline">¶</a></h1>
+<h2>All OTs<a class="headerlink" href="#all-ots" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;ot_output/*/*&#39;</span><span class="p">))],</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
@@ -1812,7 +1861,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Peak OTA \n 14 December 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_80_2.png" src="_images/Track_OTs_80_2.png" />
+<img alt="_images/Track_OTs_81_2.png" src="_images/Track_OTs_81_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1863,7 +1912,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Duration \n 14 December 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_81_2.png" src="_images/Track_OTs_81_2.png" />
+<img alt="_images/Track_OTs_82_2.png" src="_images/Track_OTs_82_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1916,7 +1965,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Peak OT Depth \n 14 December 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_82_2.png" src="_images/Track_OTs_82_2.png" />
+<img alt="_images/Track_OTs_83_2.png" src="_images/Track_OTs_83_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1975,7 +2024,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Events \n 13-14 December 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_83_2.png" src="_images/Track_OTs_83_2.png" />
+<img alt="_images/Track_OTs_84_2.png" src="_images/Track_OTs_84_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2031,7 +2080,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Peak OTA from OT Tracks \n 10 November 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_84_2.png" src="_images/Track_OTs_84_2.png" />
+<img alt="_images/Track_OTs_85_2.png" src="_images/Track_OTs_85_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2084,7 +2133,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Duration \n 10 November 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_85_2.png" src="_images/Track_OTs_85_2.png" />
+<img alt="_images/Track_OTs_86_2.png" src="_images/Track_OTs_86_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2139,7 +2188,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Events \n 10 November 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_86_2.png" src="_images/Track_OTs_86_2.png" />
+<img alt="_images/Track_OTs_87_2.png" src="_images/Track_OTs_87_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2193,7 +2242,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Peak OT Depth \n 10 November 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_87_2.png" src="_images/Track_OTs_87_2.png" />
+<img alt="_images/Track_OTs_88_2.png" src="_images/Track_OTs_88_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2516,7 +2565,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="section" id="linear-regression">
-<h1>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h1>
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">df_max</span><span class="o">.</span><span class="n">area_polygon</span><span class="p">,</span> <span class="n">df_max</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span>
@@ -2558,7 +2607,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_90_0.png" src="_images/Track_OTs_90_0.png" />
+<img alt="_images/Track_OTs_91_0.png" src="_images/Track_OTs_91_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2593,7 +2642,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Peak OT Duration ($minutes$)&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_92_1.png" src="_images/Track_OTs_92_1.png" />
+<img alt="_images/Track_OTs_93_1.png" src="_images/Track_OTs_93_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2630,7 +2679,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_93_0.png" src="_images/Track_OTs_93_0.png" />
+<img alt="_images/Track_OTs_94_0.png" src="_images/Track_OTs_94_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2711,7 +2760,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="ne">ValueError</span>: x and y must be the same size
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_96_1.png" src="_images/Track_OTs_96_1.png" />
+<img alt="_images/Track_OTs_97_1.png" src="_images/Track_OTs_97_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2809,7 +2858,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   Text(0, 0, &#39;&#39;)])
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_99_1.png" src="_images/Track_OTs_99_1.png" />
+<img alt="_images/Track_OTs_100_1.png" src="_images/Track_OTs_100_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2978,7 +3027,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_109_0.png" src="_images/Track_OTs_109_0.png" />
+<img alt="_images/Track_OTs_110_0.png" src="_images/Track_OTs_110_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3049,7 +3098,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_111_0.png" src="_images/Track_OTs_111_0.png" />
+<img alt="_images/Track_OTs_112_0.png" src="_images/Track_OTs_112_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3108,7 +3157,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_112_0.png" src="_images/Track_OTs_112_0.png" />
+<img alt="_images/Track_OTs_113_0.png" src="_images/Track_OTs_113_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3176,7 +3225,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_114_0.png" src="_images/Track_OTs_114_0.png" />
+<img alt="_images/Track_OTs_115_0.png" src="_images/Track_OTs_115_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3248,7 +3297,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_117_0.png" src="_images/Track_OTs_117_0.png" />
+<img alt="_images/Track_OTs_118_0.png" src="_images/Track_OTs_118_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3297,7 +3346,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_118_0.png" src="_images/Track_OTs_118_0.png" />
+<img alt="_images/Track_OTs_119_0.png" src="_images/Track_OTs_119_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3352,7 +3401,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_120_0.png" src="_images/Track_OTs_120_0.png" />
+<img alt="_images/Track_OTs_121_0.png" src="_images/Track_OTs_121_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3381,7 +3430,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_121_0.png" src="_images/Track_OTs_121_0.png" />
+<img alt="_images/Track_OTs_122_0.png" src="_images/Track_OTs_122_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3464,7 +3513,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_125_0.png" src="_images/Track_OTs_125_0.png" />
+<img alt="_images/Track_OTs_126_0.png" src="_images/Track_OTs_126_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3556,7 +3605,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_129_0.png" src="_images/Track_OTs_129_0.png" />
+<img alt="_images/Track_OTs_130_0.png" src="_images/Track_OTs_130_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3640,7 +3689,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_133_1.png" src="_images/Track_OTs_133_1.png" />
+<img alt="_images/Track_OTs_134_1.png" src="_images/Track_OTs_134_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3655,7 +3704,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_134_1.png" src="_images/Track_OTs_134_1.png" />
+<img alt="_images/Track_OTs_135_1.png" src="_images/Track_OTs_135_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3685,7 +3734,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_136_1.png" src="_images/Track_OTs_136_1.png" />
+<img alt="_images/Track_OTs_137_1.png" src="_images/Track_OTs_137_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3764,7 +3813,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2af2f3d18f60&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_140_1.png" src="_images/Track_OTs_140_1.png" />
+<img alt="_images/Track_OTs_141_1.png" src="_images/Track_OTs_141_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3794,7 +3843,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2af2f3d4b208&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_141_1.png" src="_images/Track_OTs_141_1.png" />
+<img alt="_images/Track_OTs_142_1.png" src="_images/Track_OTs_142_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3824,7 +3873,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2af2f3d8d978&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_142_1.png" src="_images/Track_OTs_142_1.png" />
+<img alt="_images/Track_OTs_143_1.png" src="_images/Track_OTs_143_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3872,7 +3921,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n14 December 2018&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_143_1.png" src="_images/Track_OTs_143_1.png" />
+<img alt="_images/Track_OTs_144_1.png" src="_images/Track_OTs_144_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3891,7 +3940,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_144_1.png" src="_images/Track_OTs_144_1.png" />
+<img alt="_images/Track_OTs_145_1.png" src="_images/Track_OTs_145_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3941,7 +3990,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 10 artists&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_148_2.png" src="_images/Track_OTs_148_2.png" />
+<img alt="_images/Track_OTs_149_2.png" src="_images/Track_OTs_149_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3960,7 +4009,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_149_1.png" src="_images/Track_OTs_149_1.png" />
+<img alt="_images/Track_OTs_150_1.png" src="_images/Track_OTs_150_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3979,7 +4028,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_150_1.png" src="_images/Track_OTs_150_1.png" />
+<img alt="_images/Track_OTs_151_1.png" src="_images/Track_OTs_151_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3998,7 +4047,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_151_1.png" src="_images/Track_OTs_151_1.png" />
+<img alt="_images/Track_OTs_152_1.png" src="_images/Track_OTs_152_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4017,7 +4066,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_152_1.png" src="_images/Track_OTs_152_1.png" />
+<img alt="_images/Track_OTs_153_1.png" src="_images/Track_OTs_153_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4101,7 +4150,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Duration All OTs  \n 10 November, 12 November, 14 December 2018 UTC (Count = 1022)&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_154_1.png" src="_images/Track_OTs_154_1.png" />
+<img alt="_images/Track_OTs_155_1.png" src="_images/Track_OTs_155_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4114,7 +4163,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x2b5e68d12cf8&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_155_1.png" src="_images/Track_OTs_155_1.png" />
+<img alt="_images/Track_OTs_156_1.png" src="_images/Track_OTs_156_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4175,7 +4224,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;ot_depth&#39;}, xlabel=&#39;u_diam&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_161_1.png" src="_images/Track_OTs_161_1.png" />
+<img alt="_images/Track_OTs_162_1.png" src="_images/Track_OTs_162_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4188,7 +4237,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x2b56fb31a240&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_162_1.png" src="_images/Track_OTs_162_1.png" />
+<img alt="_images/Track_OTs_163_1.png" src="_images/Track_OTs_163_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4244,7 +4293,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4.0, 6.0)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_166_1.png" src="_images/Track_OTs_166_1.png" />
+<img alt="_images/Track_OTs_167_1.png" src="_images/Track_OTs_167_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4261,7 +4310,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
  &lt;BarContainer object of 20 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_167_1.png" src="_images/Track_OTs_167_1.png" />
+<img alt="_images/Track_OTs_168_1.png" src="_images/Track_OTs_168_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4278,7 +4327,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
  &lt;BarContainer object of 20 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_168_1.png" src="_images/Track_OTs_168_1.png" />
+<img alt="_images/Track_OTs_169_1.png" src="_images/Track_OTs_169_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4295,7 +4344,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
  &lt;BarContainer object of 20 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_169_1.png" src="_images/Track_OTs_169_1.png" />
+<img alt="_images/Track_OTs_170_1.png" src="_images/Track_OTs_170_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4361,7 +4410,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="ne">NameError</span>: name &#39;ot_core_bins&#39; is not defined
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_171_1.png" src="_images/Track_OTs_171_1.png" />
+<img alt="_images/Track_OTs_172_1.png" src="_images/Track_OTs_172_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4416,7 +4465,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="ne">NameError</span>: name &#39;calc_r&#39; is not defined
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_172_1.png" src="_images/Track_OTs_172_1.png" />
+<img alt="_images/Track_OTs_173_1.png" src="_images/Track_OTs_173_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4477,7 +4526,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_173_0.png" src="_images/Track_OTs_173_0.png" />
+<img alt="_images/Track_OTs_174_0.png" src="_images/Track_OTs_174_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4526,7 +4575,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_174_0.png" src="_images/Track_OTs_174_0.png" />
+<img alt="_images/Track_OTs_175_0.png" src="_images/Track_OTs_175_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4575,7 +4624,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_175_0.png" src="_images/Track_OTs_175_0.png" />
+<img alt="_images/Track_OTs_176_0.png" src="_images/Track_OTs_176_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4685,7 +4734,7 @@ Name: ot_depth, Length: 257, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_177_0.png" src="_images/Track_OTs_177_0.png" />
+<img alt="_images/Track_OTs_178_0.png" src="_images/Track_OTs_178_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4725,7 +4774,7 @@ Name: ot_depth, Length: 257, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/Track_OTs_178_0.png" src="_images/Track_OTs_178_0.png" />
+<img alt="_images/Track_OTs_179_0.png" src="_images/Track_OTs_179_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4744,7 +4793,7 @@ Name: ot_depth, Length: 257, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_179_1.png" src="_images/Track_OTs_179_1.png" />
+<img alt="_images/Track_OTs_180_1.png" src="_images/Track_OTs_180_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4763,7 +4812,7 @@ Name: ot_depth, Length: 257, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Frequency&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_180_1.png" src="_images/Track_OTs_180_1.png" />
+<img alt="_images/Track_OTs_181_1.png" src="_images/Track_OTs_181_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4792,7 +4841,7 @@ Name: ot_depth, Length: 257, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_183_1.png" src="_images/Track_OTs_183_1.png" />
+<img alt="_images/Track_OTs_184_1.png" src="_images/Track_OTs_184_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4823,7 +4872,7 @@ Name: ot_depth, Length: 257, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x2b80a64b0f60&gt;
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_185_1.png" src="_images/Track_OTs_185_1.png" />
+<img alt="_images/Track_OTs_186_1.png" src="_images/Track_OTs_186_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4892,7 +4941,7 @@ Name: ot_depth, Length: 257, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n All Cases&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_187_1.png" src="_images/Track_OTs_187_1.png" />
+<img alt="_images/Track_OTs_188_1.png" src="_images/Track_OTs_188_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4936,7 +4985,7 @@ Name: ot_depth, Length: 257, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Overshooting top tracks\n All Cases&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_188_1.png" src="_images/Track_OTs_188_1.png" />
+<img alt="_images/Track_OTs_189_1.png" src="_images/Track_OTs_189_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4965,7 +5014,7 @@ Name: ot_depth, Length: 257, dtype: float64
  &lt;BarContainer object of 10 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_191_1.png" src="_images/Track_OTs_191_1.png" />
+<img alt="_images/Track_OTs_192_1.png" src="_images/Track_OTs_192_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -4981,7 +5030,7 @@ Name: ot_depth, Length: 257, dtype: float64
  &lt;BarContainer object of 11 artists&gt;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_192_1.png" src="_images/Track_OTs_192_1.png" />
+<img alt="_images/Track_OTs_193_1.png" src="_images/Track_OTs_193_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -5177,7 +5226,7 @@ found this many stubs: 183
   68.43706303]
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_198_1.png" src="_images/Track_OTs_198_1.png" />
+<img alt="_images/Track_OTs_199_1.png" src="_images/Track_OTs_199_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -5210,7 +5259,8 @@ found this many stubs: 183
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;OT Duration 14 December 2018 \n 1500 - 2359 UTC (Count = 2353)&#39;)
 </pre></div>
 </div>
-<img alt="_images/Track_OTs_199_1.png" src="_images/Track_OTs_199_1.png" />
+<img alt="_images/Track_OTs_200_1.png" src="_images/Track_OTs_200_1.png" />
+</div>
 </div>
 </div>
 </div>

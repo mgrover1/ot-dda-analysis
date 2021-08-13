@@ -1,0 +1,2411 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preprocess Dual Doppler Data &#8212; Overshooting Top Dual Doppler Analysis</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Dual Doppler Analysis" href="dual_doppler_analysis.html" />
+    <link rel="prev" title="Overshooting Top Area Quantification" href="process_ot_data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/relampago_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Overshooting Top Dual Doppler Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Overshooting Tops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="process_ot_data.html">
+   Overshooting Top Area Quantification
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Dual Doppler Analysis
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Preprocess Dual Doppler Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dual_doppler_analysis.html">
+   Dual Doppler Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plot_dual_doppler_output.html">
+   Plot Dual Doppler Output
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Uncertainty
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ot_ua_uncertainty.html">
+   Overshooting Top Area - Updraft Area Uncertainty
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/dual_doppler_preprocess.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/dual_doppler_preprocess.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-original-12-november-case-data">
+   Convert Original 12 November Case Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-manually-cleaned-12-november-case-data">
+   Convert Manually Cleaned 12 November Case Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convert-13-december-data-to-cfradial">
+   Convert 13 December Data to Cfradial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#since-dow8-only-includes-high-frequency-use-this">
+   Since DOW8 only includes high frequency, use this
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#november-rhi-scans">
+   12 November RHI Scans
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="preprocess-dual-doppler-data">
+<h1>Preprocess Dual Doppler Data<a class="headerlink" href="#preprocess-dual-doppler-data" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1954&#39;</span><span class="p">,</span> <span class="s1">&#39;1957&#39;</span><span class="p">,</span> <span class="s1">&#39;2001&#39;</span><span class="p">,</span> <span class="s1">&#39;2007&#39;</span><span class="p">,</span> <span class="s1">&#39;2012&#39;</span><span class="p">,</span> <span class="s1">&#39;2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="s1">&#39;2021&#39;</span><span class="p">]</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">times</span><span class="p">:</span>
+        <span class="o">!</span> /usr/local/bin/RadxConvert -f /Users/mgrover/research/dual_doppler/iop4_clean_Sweeps/Dow<span class="o">{</span>radar<span class="o">}</span>/<span class="o">{</span>time<span class="o">}</span>/* -params RadxConvert.params -outdir /Volumes/Samsung_T5/iop4_clean_cfrad/dow<span class="o">{</span>radar<span class="o">}</span>/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/25 03:07:51.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/25 03:08:38.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/25 03:09:28.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/25 03:10:29.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/25 03:11:05.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/25 03:11:57.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/25 03:12:49.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/25 03:13:23.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/*VER_v???&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112030924.DOW7high.280.89.1_VER_v249&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112030934.DOW7high.468.89.1_VER_v249&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112031924.DOW7high.956.89.1_VER_v252&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112031935.DOW7high.126.89.1_VER_v252&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112032924.DOW7high.316.89.1_VER_v255&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112032934.DOW7high.504.89.1_VER_v255&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112035925.DOW7high.10.89.1_VER_v264&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112035935.DOW7high.198.89.1_VER_v264&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112040924.DOW7high.82.89.1_VER_v267&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112040934.DOW7high.270.89.1_VER_v267&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112041925.DOW7high.28.89.1_VER_v270&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112041935.DOW7high.216.89.1_VER_v270&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112042924.DOW7high.100.89.1_VER_v273&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112042934.DOW7high.288.89.1_VER_v273&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033924.DOW7high.974.89.1_VER_v258&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033935.DOW7high.162.89.1_VER_v258&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112034924.DOW7high.352.89.1_VER_v261&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112034934.DOW7high.540.89.1_VER_v261&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112020924.DOW7high.172.89.1_VER_v231&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112020934.DOW7high.360.89.1_VER_v231&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112021924.DOW7high.848.89.1_VER_v234&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112021935.DOW7high.36.89.1_VER_v234&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112022924.DOW7high.226.89.1_VER_v237&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112022934.DOW7high.414.89.1_VER_v237&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112023924.DOW7high.884.89.1_VER_v240&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112023935.DOW7high.72.89.1_VER_v240&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112024924.DOW7high.244.89.1_VER_v243&#39;,
+ &#39;/Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112024934.DOW7high.432.89.1_VER_v243&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/*VER_v??? -params RadxConvert.params -outdir /Volumes/Samsung_T5/dual_doppler_nov_12/raw_cfradial/<span class="o">{</span>radar<span class="o">}</span>/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/28 02:36:16.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-original-12-november-case-data">
+<h2>Convert Original 12 November Case Data<a class="headerlink" href="#convert-original-12-november-case-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0202&#39;</span><span class="p">,</span> <span class="s1">&#39;0206&#39;</span><span class="p">,</span> <span class="s1">&#39;0212&#39;</span><span class="p">,</span> <span class="s1">&#39;0216&#39;</span><span class="p">,</span> <span class="s1">&#39;0222&#39;</span><span class="p">,</span> <span class="s1">&#39;0226&#39;</span><span class="p">,</span> <span class="s1">&#39;0232&#39;</span><span class="p">,</span> <span class="s1">&#39;0236&#39;</span><span class="p">,</span> <span class="s1">&#39;0242&#39;</span><span class="p">,</span> <span class="s1">&#39;0246&#39;</span><span class="p">,</span> <span class="s1">&#39;0252&#39;</span><span class="p">,</span> <span class="s1">&#39;0256&#39;</span><span class="p">]</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dow6&#39;</span><span class="p">,</span> <span class="s1">&#39;dow7&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">times</span><span class="p">:</span>
+        <span class="o">!</span> /usr/local/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/<span class="o">{</span>radar<span class="o">}</span>/<span class="o">{</span>time<span class="o">}</span>_UTC/* -params RadxConvert.params -outdir /Volumes/Samsung_T5/dual_doppler_nov_12/raw_cfradial/<span class="o">{</span>radar<span class="o">}</span>/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:44:15.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:44:46.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:45:14.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:45:42.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:46:14.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:46:49.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:47:20.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:47:50.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:48:19.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:48:48.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:49:17.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:49:45.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:50:13.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:50:54.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:51:37.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:52:19.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:53:01.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:53:44.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:54:25.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:55:03.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:55:40.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:56:24.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:57:09.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2021/01/27 03:57:51.
+
+Copyright (c) 1992 - 2021
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-manually-cleaned-12-november-case-data">
+<h2>Convert Manually Cleaned 12 November Case Data<a class="headerlink" href="#convert-manually-cleaned-12-november-case-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="s1">&#39;0240&#39;</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radar</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="o">!</span> /usr/local/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_nov_12/manually_cleaned_dorade/DOW6/0230/* -params RadxConvert.params -outdir /Volumes/Samsung_T5/dual_doppler_nov_12/manually_cleaned_cfrad/DOW<span class="o">{</span>radar<span class="o">}</span>/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/10/08 01:04:49.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="o">!</span> /usr/local/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_nov_12/manually_cleaned_dorade/DOW<span class="o">{</span>radar<span class="o">}</span>/<span class="o">{</span>time<span class="o">}</span>/* -params RadxConvert.params -outdir /Volumes/Samsung_T5/dual_doppler_nov_12/manually_cleaned_cfrad/DOW<span class="o">{</span>radar<span class="o">}</span>/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/10/02 19:42:27.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/10/02 19:43:04.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/manually_cleaned_dorade/DOW7/0240/0240
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/manually_cleaned_dorade/DOW7/0240/0240
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/manually_cleaned_dorade/DOW7/0240/0240
+
+ERROR - running RadxConvert
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-13-december-data-to-cfradial">
+<h2>Convert 13 December Data to Cfradial<a class="headerlink" href="#convert-13-december-data-to-cfradial" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dow7&#39;</span><span class="p">,</span> <span class="s1">&#39;dow8&#39;</span><span class="p">,</span> <span class="s1">&#39;cow&#39;</span><span class="p">]</span>
+<span class="n">setting</span> <span class="o">=</span> <span class="s1">&#39;low&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cow&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#radar = radars[1]</span>
+
+<span class="k">for</span> <span class="n">radar</span> <span class="ow">in</span> <span class="n">radars</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="o">!</span> /usr/local/bin/RadxConvert -f /Volumes/Samsung_T5/relampago_radar/dec13/<span class="o">{</span>radar<span class="o">}</span>/swp* -params RadxConvert.params -outdir /Volumes/Samsung_T5/relampago_radar/dec13_cfradial/
+
+    <span class="k">except</span><span class="p">:</span>
+        <span class="o">!</span> /usr/local/bin/RadxConvert -f /Volumes/Samsung_T5/relampago_radar/dec13/<span class="o">{</span>radar<span class="o">}</span>/swp* -params RadxConvert.params -outdir /Volumes/Samsung_T5/relampago_radar/dec13_cfradial/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/09/02 20:36:29.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="since-dow8-only-includes-high-frequency-use-this">
+<h2>Since DOW8 only includes high frequency, use this<a class="headerlink" href="#since-dow8-only-includes-high-frequency-use-this" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radar</span> <span class="o">=</span> <span class="n">radars</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="o">!</span> /usr/local/bin/RadxConvert -f /Volumes/Samsung_T5/relampago_radar/dec13/<span class="o">{</span>radar<span class="o">}</span>/* -params RadxConvert.params -outdir /Volumes/Samsung_T5/relampago_radar/dec13_cfradial/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/20 20:35:09.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="november-rhi-scans">
+<h2>12 November RHI Scans<a class="headerlink" href="#november-rhi-scans" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/bin/RadxConvert -f /Users/mgrover/research/radar_data/nov12/rhi/dow7/* -params RadxConvert.params -outdir /Users/mgrover/research/radar_data/nov12/rhi_cfrad/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/24 21:19:39.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#for number in numbers:</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">times</span><span class="p">:</span>
+        
+    <span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f iop4_clean_Sweeps/Dow<span class="o">{</span>number<span class="o">}</span>/<span class="o">{</span>time<span class="o">}</span>/* -params RadxConvert.params
+        
+    <span class="o">!</span> mkdir output/nov10/Dow<span class="o">{</span>number<span class="o">}</span>/v<span class="o">{</span>time<span class="o">}</span>
+    <span class="o">!</span> mv output/20181110/cf* output/nov10/Dow<span class="o">{</span>number<span class="o">}</span>/v<span class="o">{</span>time<span class="o">}</span>/.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/relampago_radar/iop4_clean_Sweeps/Dow<span class="o">{</span>number<span class="o">}</span>/v<span class="o">{</span>time<span class="o">}</span>/*
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/relampago_radar/iop4_clean_Sweeps/Dow<span class="o">{</span>number<span class="o">}</span>/v<span class="o">{</span>time<span class="o">}</span>/*
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> mkdir output/Dow<span class="o">{</span>number<span class="o">}</span>/v<span class="o">{</span>time<span class="o">}</span>
+<span class="o">!</span> mv output/20181110/cf* output/Dow<span class="o">{</span>number<span class="o">}</span>/v<span class="o">{</span>time<span class="o">}</span>/.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_nov_12/manually_cleaned_dorade/DOW6/0234/* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/08/06 14:47:08.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/07/16 12:52:11.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033020.DOW7high.134.0.6_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033020.DOW7high.134.0.6_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033020.DOW7high.134.0.6_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033032.DOW7high.16.1.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033032.DOW7high.16.1.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033032.DOW7high.16.1.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033043.DOW7high.898.2.6_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033043.DOW7high.898.2.6_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033043.DOW7high.898.2.6_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033055.DOW7high.780.4.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033055.DOW7high.780.4.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033055.DOW7high.780.4.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033119.DOW7high.542.7.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033119.DOW7high.542.7.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033119.DOW7high.542.7.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033131.DOW7high.424.8.6_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033131.DOW7high.424.8.6_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033131.DOW7high.424.8.6_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033143.DOW7high.304.10.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033143.DOW7high.304.10.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033143.DOW7high.304.10.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033155.DOW7high.184.12.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033155.DOW7high.184.12.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033155.DOW7high.184.12.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033207.DOW7high.64.14.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033207.DOW7high.64.14.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033207.DOW7high.64.14.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033218.DOW7high.946.16.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033218.DOW7high.946.16.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033218.DOW7high.946.16.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033230.DOW7high.828.18.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033230.DOW7high.828.18.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033230.DOW7high.828.18.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033242.DOW7high.706.20.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033242.DOW7high.706.20.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033242.DOW7high.706.20.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033254.DOW7high.588.23.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033254.DOW7high.588.23.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033254.DOW7high.588.23.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033306.DOW7high.468.26.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033306.DOW7high.468.26.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033306.DOW7high.468.26.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033318.DOW7high.350.29.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033318.DOW7high.350.29.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033318.DOW7high.350.29.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033330.DOW7high.232.32.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033330.DOW7high.232.32.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033330.DOW7high.232.32.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033342.DOW7high.112.35.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033342.DOW7high.112.35.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033342.DOW7high.112.35.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033353.DOW7high.992.38.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033353.DOW7high.992.38.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033353.DOW7high.992.38.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033405.DOW7high.874.41.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033405.DOW7high.874.41.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033405.DOW7high.874.41.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033417.DOW7high.752.45.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033417.DOW7high.752.45.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033417.DOW7high.752.45.1_SUR_v256
+
+ERROR - RadxConvert::_readFile
+  path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033429.DOW7high.636.50.1_SUR_v256
+ERROR - DoradeRadxFile::_readSweepFile()
+  Bad number of bytes
+  ID: 
+  nBytes: 0
+  File path: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033107.DOW7high.658.5.6_SUR_v256
+ERROR - DoradeRadxFile::readFromPath
+ERROR - RadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033429.DOW7high.636.50.1_SUR_v256
+ERROR - GenericRadxFile::readFromPath
+  File format not recognized: /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow7/swp.1181112033429.DOW7high.636.50.1_SUR_v256
+
+^C
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow8/* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/07/24 15:50:42.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/IPython/utils/_process_posix.py</span> in <span class="ni">system</span><span class="nt">(self, cmd)</span>
+<span class="g g-Whitespace">    </span><span class="mi">160</span>                 <span class="c1"># know whether we&#39;ve finished (if we matched EOF) or not</span>
+<span class="ne">--&gt; </span><span class="mi">161</span>                 <span class="n">res_idx</span> <span class="o">=</span> <span class="n">child</span><span class="o">.</span><span class="n">expect_list</span><span class="p">(</span><span class="n">patterns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">162</span>                 <span class="nb">print</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">before</span><span class="p">[</span><span class="n">out_size</span><span class="p">:]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">enc</span><span class="p">,</span> <span class="s1">&#39;replace&#39;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/pexpect/spawnbase.py</span> in <span class="ni">expect_list</span><span class="nt">(self, pattern_list, timeout, searchwindowsize, async_, **kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">372</span>             <span class="k">return</span> <span class="n">exp</span><span class="o">.</span><span class="n">expect_loop</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span> 
+
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/pexpect/expect.py</span> in <span class="ni">expect_loop</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span>                 <span class="c1"># Still have time left, so read more data</span>
+<span class="ne">--&gt; </span><span class="mi">169</span>                 <span class="n">incoming</span> <span class="o">=</span> <span class="n">spawn</span><span class="o">.</span><span class="n">read_nonblocking</span><span class="p">(</span><span class="n">spawn</span><span class="o">.</span><span class="n">maxread</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawn</span><span class="o">.</span><span class="n">delayafterread</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/pexpect/pty_spawn.py</span> in <span class="ni">read_nonblocking</span><span class="nt">(self, size, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>         <span class="c1"># (possibly timeout=None), we call select() with a timeout.</span>
+<span class="ne">--&gt; </span><span class="mi">500</span>         <span class="k">if</span> <span class="p">(</span><span class="n">timeout</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">select</span><span class="p">(</span><span class="n">timeout</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>             <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">spawn</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">read_nonblocking</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/pexpect/pty_spawn.py</span> in <span class="ni">select</span><span class="nt">(timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span>             <span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="n">timeout</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">450</span>                 <span class="k">return</span> <span class="n">select_ignore_interrupts</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">child_fd</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="n">timeout</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span> 
+
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/pexpect/utils.py</span> in <span class="ni">select_ignore_interrupts</span><span class="nt">(iwtd, owtd, ewtd, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">143</span>             <span class="k">return</span> <span class="n">select</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">iwtd</span><span class="p">,</span> <span class="n">owtd</span><span class="p">,</span> <span class="n">ewtd</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="k">except</span> <span class="ne">InterruptedError</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">ea4a526ea2ff</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39; /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_nov_12/raw_dorade/dow8/* -params RadxConvert.params&#39;</span><span class="p">)</span>
+
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/ipykernel/zmqshell.py</span> in <span class="ni">system_piped</span><span class="nt">(self, cmd)</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">user_ns</span><span class="p">[</span><span class="s1">&#39;_exit_code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">634</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">635</span>             <span class="bp">self</span><span class="o">.</span><span class="n">user_ns</span><span class="p">[</span><span class="s1">&#39;_exit_code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">system</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">var_expand</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">636</span> 
+<span class="g g-Whitespace">    </span><span class="mi">637</span>     <span class="c1"># Ensure new system_piped implementation is used</span>
+
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/IPython/utils/_process_posix.py</span> in <span class="ni">system</span><span class="nt">(self, cmd)</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span>             <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span>                 <span class="c1"># Ensure the subprocess really is terminated</span>
+<span class="ne">--&gt; </span><span class="mi">185</span>                 <span class="n">child</span><span class="o">.</span><span class="n">terminate</span><span class="p">(</span><span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>         <span class="c1"># add isalive check, to ensure exitstatus is set:</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span>         <span class="n">child</span><span class="o">.</span><span class="n">isalive</span><span class="p">()</span>
+
+<span class="nn">~/miniconda3/envs/unidata/lib/python3.7/site-packages/pexpect/pty_spawn.py</span> in <span class="ni">terminate</span><span class="nt">(self, force)</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span>                 <span class="k">return</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>             <span class="bp">self</span><span class="o">.</span><span class="n">kill</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGCONT</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">646</span>             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delayafterterminate</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span>             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isalive</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>                 <span class="k">return</span> <span class="kc">True</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_dec_4/dow8/* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/07/15 15:28:55.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_dec_4/dow7/* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/07/15 15:29:24.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_dec_4/dow6/* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/07/15 15:30:05.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_dec_13/dow7/* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/07/15 15:30:58.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_dec_13/dow8/* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/07/15 17:05:15.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> /usr/local/Cellar/lrose-core/core-20200110/bin/RadxConvert -f /Volumes/Samsung_T5/dual_doppler_dec_13/cow/* -params RadxConvert.params
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+Program &#39;RadxConvert&#39;
+Run-time 2020/07/15 15:32:52.
+
+Copyright (c) 1992 - 2020
+University Corporation for Atmospheric Research (UCAR)
+National Center for Atmospheric Research (NCAR)
+Boulder, Colorado, USA.
+
+Redistribution and use in source and binary forms, with
+or without modification, are permitted provided that the following
+conditions are met:
+
+1) Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+
+3) Neither the name of UCAR, NCAR nor the names of its contributors, if
+any, may be used to endorse or promote products derived from this
+software without specific prior written permission.
+
+4) If the software is modified to produce derivative works, such modified
+software should be clearly marked, so as not to confuse it with the
+version available from UCAR.
+
+======================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="process_ot_data.html" title="previous page">Overshooting Top Area Quantification</a>
+    <a class='right-next' id="next-link" href="dual_doppler_analysis.html" title="next page">Dual Doppler Analysis</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
