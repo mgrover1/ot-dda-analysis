@@ -2,3 +2,4 @@ jupyter-book==0.10.2
 matplotlib
 numpy
 ghp-import
+Jinja2<3.1
