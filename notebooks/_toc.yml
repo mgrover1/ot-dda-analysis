@@ -1,4 +1,7 @@
 - file: introduction
+- part: SGP Summer Experiment
+  chapters:
+  - glob: sgp-summer-experiment/*
 - part: Overshooting Tops
   chapters:
   - file: process_ot_data
