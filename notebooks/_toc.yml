@@ -5,7 +5,7 @@
 - part: Overshooting Tops
   chapters:
   - file: process_ot_data
-  - file: track_ots
+  - file: Track_OTs
 - part: Dual Doppler Analysis
   chapters:
   - file: dual_doppler_preprocess
