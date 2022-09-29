@@ -1,7 +1,8 @@
 - file: introduction
 - part: SGP Summer Experiment
   chapters:
-  - glob: sgp-summer-experiment/*
+  - file: sgp-summer-experiment/visualize-updrafts-sgp
+  - file: sgp-summer-experiment/plot-ots-in-domain
 - part: Overshooting Tops
   chapters:
   - file: process_ot_data
