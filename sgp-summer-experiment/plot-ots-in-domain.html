@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plot OTs from the SGP Summer Experiment &#8212; Overshooting Top Dual Doppler Analysis</title>
+    <title>Prepare OT data and Identify Radar Scan Types &#8212; Overshooting Top Dual Doppler Analysis</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -122,7 +122,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Plot OTs from the SGP Summer Experiment
+   Prepare OT data and Identify Radar Scan Types
   </a>
  </li>
 </ul>
@@ -353,20 +353,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#determine-the-scan-type">
-   Determine the Scan Type
+  <a class="reference internal nav-link" href="#convert-the-merged-dataset-to-zarr">
+   Convert the merged dataset to zarr
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#look-at-one-of-the-radar-scans">
-     Look at one of the Radar Scans
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-the-intersection-of-the-two">
-   Plot the Intersection of the Two
+  <a class="reference internal nav-link" href="#determine-the-scan-type">
+   Determine the Scan Type
   </a>
  </li>
 </ul>
@@ -378,7 +371,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Plot OTs from the SGP Summer Experiment</h1>
+                <h1>Prepare OT data and Identify Radar Scan Types</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -404,20 +397,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#determine-the-scan-type">
-   Determine the Scan Type
+  <a class="reference internal nav-link" href="#convert-the-merged-dataset-to-zarr">
+   Convert the merged dataset to zarr
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#look-at-one-of-the-radar-scans">
-     Look at one of the Radar Scans
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-the-intersection-of-the-two">
-   Plot the Intersection of the Two
+  <a class="reference internal nav-link" href="#determine-the-scan-type">
+   Determine the Scan Type
   </a>
  </li>
 </ul>
@@ -430,8 +416,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="section" id="plot-ots-from-the-sgp-summer-experiment">
-<h1>Plot OTs from the SGP Summer Experiment<a class="headerlink" href="#plot-ots-from-the-sgp-summer-experiment" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="prepare-ot-data-and-identify-radar-scan-types">
+<h1>Prepare OT data and Identify Radar Scan Types<a class="headerlink" href="#prepare-ot-data-and-identify-radar-scan-types" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -2365,6 +2351,11 @@ if (window.Jupyter !== undefined) {
 ##     JJ Helmus and SM Collis, JORS 2016, doi: 10.5334/jors.119
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;frozen importlib._bootstrap&gt;:283: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.12; use exec_module() instead
+/Users/mgrover/miniforge3/envs/pyart-docs/lib/python3.10/site-packages/tqdm/auto.py:22: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -2379,18 +2370,11 @@ if (window.Jupyter !== undefined) {
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-08-09 15:16:50,573 - distributed.diskutils - INFO - Found stale lock file and directory &#39;/var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-d7tw49gi&#39;, purging
-2022-08-09 15:16:50,573 - distributed.diskutils - INFO - Found stale lock file and directory &#39;/var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-k_0mzt8w&#39;, purging
-2022-08-09 15:16:50,573 - distributed.diskutils - INFO - Found stale lock file and directory &#39;/var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-o1h5ssa7&#39;, purging
-2022-08-09 15:16:50,573 - distributed.diskutils - INFO - Found stale lock file and directory &#39;/var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-ltcw3hxr&#39;, purging
-2022-08-09 15:16:50,574 - distributed.diskutils - INFO - Found stale lock file and directory &#39;/var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-60os29lh&#39;, purging
-</pre></div>
-</div>
 <div class="output text_html"><div>
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-33f8eb02-1820-11ed-a294-520a01803a91</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-b8275d5c-402d-11ed-9e27-520a01803a92</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -2403,7 +2387,7 @@ if (window.Jupyter !== undefined) {
 
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard: </strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
+                    <strong>Dashboard: </strong> <a href="http://127.0.0.1:50486/status" target="_blank">http://127.0.0.1:50486/status</a>
                 </td>
                 <td style="text-align: left;"></td>
             </tr>
@@ -2419,11 +2403,11 @@ if (window.Jupyter !== undefined) {
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">94c620ac</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">da0bde31</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard:</strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
+                    <strong>Dashboard:</strong> <a href="http://127.0.0.1:50486/status" target="_blank">http://127.0.0.1:50486/status</a>
                 </td>
                 <td style="text-align: left;">
                     <strong>Workers:</strong> 5
@@ -2456,11 +2440,11 @@ if (window.Jupyter !== undefined) {
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-d71ef1db-c320-42f2-a3bf-bedc03719a0f</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-58b58b31-c074-4051-9c7d-bf528ac6d2f8</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:58812
+                        <strong>Comm:</strong> tcp://127.0.0.1:50487
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 5
@@ -2468,7 +2452,7 @@ if (window.Jupyter !== undefined) {
                 </tr>
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Dashboard:</strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
+                        <strong>Dashboard:</strong> <a href="http://127.0.0.1:50486/status" target="_blank">http://127.0.0.1:50486/status</a>
                     </td>
                     <td style="text-align: left;">
                         <strong>Total threads:</strong> 10
@@ -2502,7 +2486,7 @@ if (window.Jupyter !== undefined) {
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:58840
+                            <strong>Comm: </strong> tcp://127.0.0.1:50507
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -2510,7 +2494,7 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:58843/status" target="_blank">http://127.0.0.1:58843/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:50511/status" target="_blank">http://127.0.0.1:50511/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 6.40 GiB
@@ -2518,13 +2502,13 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:58818
+                            <strong>Nanny: </strong> tcp://127.0.0.1:50490
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-mp1lqb_f
+                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-yywfk3om
                         </td>
                     </tr>
 
@@ -2547,7 +2531,7 @@ if (window.Jupyter !== undefined) {
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:58839
+                            <strong>Comm: </strong> tcp://127.0.0.1:50508
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -2555,7 +2539,7 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:58841/status" target="_blank">http://127.0.0.1:58841/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:50513/status" target="_blank">http://127.0.0.1:50513/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 6.40 GiB
@@ -2563,13 +2547,13 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:58819
+                            <strong>Nanny: </strong> tcp://127.0.0.1:50492
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-4t4flk0a
+                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-1rxqxdgs
                         </td>
                     </tr>
 
@@ -2592,7 +2576,7 @@ if (window.Jupyter !== undefined) {
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:58831
+                            <strong>Comm: </strong> tcp://127.0.0.1:50509
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -2600,7 +2584,7 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:58834/status" target="_blank">http://127.0.0.1:58834/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:50512/status" target="_blank">http://127.0.0.1:50512/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 6.40 GiB
@@ -2608,13 +2592,13 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:58816
+                            <strong>Nanny: </strong> tcp://127.0.0.1:50494
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-y16dzi__
+                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-glhlm89q
                         </td>
                     </tr>
 
@@ -2637,7 +2621,7 @@ if (window.Jupyter !== undefined) {
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:58830
+                            <strong>Comm: </strong> tcp://127.0.0.1:50505
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -2645,7 +2629,7 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:58832/status" target="_blank">http://127.0.0.1:58832/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:50510/status" target="_blank">http://127.0.0.1:50510/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 6.40 GiB
@@ -2653,13 +2637,13 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:58815
+                            <strong>Nanny: </strong> tcp://127.0.0.1:50491
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-sp70cjur
+                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-4h49gnru
                         </td>
                     </tr>
 
@@ -2682,7 +2666,7 @@ if (window.Jupyter !== undefined) {
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:58835
+                            <strong>Comm: </strong> tcp://127.0.0.1:50506
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 2
@@ -2690,7 +2674,7 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:58837/status" target="_blank">http://127.0.0.1:58837/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:50514/status" target="_blank">http://127.0.0.1:50514/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 6.40 GiB
@@ -2698,13 +2682,13 @@ if (window.Jupyter !== undefined) {
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:58817
+                            <strong>Nanny: </strong> tcp://127.0.0.1:50493
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-c1noduwx
+                            <strong>Local directory: </strong> /var/folders/bw/c9j8z20x45s2y20vv6528qjc0000gq/T/dask-worker-space/worker-py6doqa_
                         </td>
                     </tr>
 
@@ -2735,19 +2719,346 @@ if (window.Jupyter !== undefined) {
 <h2>Load in the Data<a class="headerlink" href="#load-in-the-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../../data/2018150/*&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../../data/2018151/*&quot;</span><span class="p">))</span>
 <span class="n">radar_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../../data/sgpxsaprcmacsecI6/*&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Read in the OT algorithm output</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">files</span><span class="p">,</span>
-                       <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">240</span><span class="p">},</span>
-                       <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
-                       <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ot_dirs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../../data/2018*&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;../../data/2018144&#39;,
+ &#39;../../data/2018145&#39;,
+ &#39;../../data/2018149&#39;,
+ &#39;../../data/2018150&#39;,
+ &#39;../../data/2018151&#39;,
+ &#39;../../data/2018181&#39;,
+ &#39;../../data/2018182&#39;,
+ &#39;../../data/2018195&#39;,
+ &#39;../../data/2018196&#39;,
+ &#39;../../data/2018207&#39;,
+ &#39;../../data/2018228&#39;,
+ &#39;../../data/2018229&#39;,
+ &#39;../../data/2018231&#39;,
+ &#39;../../data/2018232&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="convert-the-merged-dataset-to-zarr">
+<h2>Convert the merged dataset to zarr<a class="headerlink" href="#convert-the-merged-dataset-to-zarr" title="Permalink to this headline">¶</a></h2>
+<p>Read in the OT algorithm output, merge into single days, and covert to zarr!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ot_dir</span> <span class="ow">in</span> <span class="n">ot_dirs</span><span class="p">:</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ot_dir</span><span class="si">}</span><span class="s2">/*&quot;</span><span class="p">))</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">files</span><span class="p">,</span>
+                           <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">120</span><span class="p">},</span>
+                           <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+                           <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Add in the parallax correction</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;parallax_correction_latitude&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">parallax_correction_latitude</span> <span class="o">+</span> <span class="n">ds</span><span class="o">.</span><span class="n">latitude</span>
+    <span class="n">ds</span><span class="p">[</span><span class="s2">&quot;parallax_correction_longitude&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">parallax_correction_longitude</span> <span class="o">+</span> <span class="n">ds</span><span class="o">.</span><span class="n">longitude</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">set_coords</span><span class="p">([</span><span class="s1">&#39;parallax_correction_longitude&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;parallax_correction_latitude&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># Create an output file name from the time</span>
+    <span class="n">file_label</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;ot_output_%Y%m</span><span class="si">%d</span><span class="s2">.zarr&quot;</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Make sure the times are in a single chunk</span>
+        <span class="n">ds</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">120</span><span class="p">})</span><span class="o">.</span><span class="n">to_zarr</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;../../data/cot-zarr/</span><span class="si">{</span><span class="n">file_label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done with: &quot;</span><span class="p">,</span> <span class="n">file_label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180524.zarr
+Done with:  ot_output_20180525.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:33:49,333 - distributed.utils_perf - WARNING - full garbage collections took 21% CPU time recently (threshold: 10%)
+2022-09-29 15:33:50,610 - distributed.utils_perf - WARNING - full garbage collections took 21% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180529.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:33:59,876 - distributed.utils_perf - WARNING - full garbage collections took 21% CPU time recently (threshold: 10%)
+2022-09-29 15:34:11,860 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:12,150 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:12,632 - distributed.utils_perf - WARNING - full garbage collections took 19% CPU time recently (threshold: 10%)
+2022-09-29 15:34:12,751 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:13,034 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:14,051 - distributed.utils_perf - WARNING - full garbage collections took 19% CPU time recently (threshold: 10%)
+2022-09-29 15:34:14,433 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:14,999 - distributed.utils_perf - WARNING - full garbage collections took 19% CPU time recently (threshold: 10%)
+2022-09-29 15:34:15,993 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:16,285 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180530.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:34:23,623 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:31,778 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:32,032 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:32,146 - distributed.utils_perf - WARNING - full garbage collections took 10% CPU time recently (threshold: 10%)
+2022-09-29 15:34:32,211 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:32,265 - distributed.utils_perf - WARNING - full garbage collections took 19% CPU time recently (threshold: 10%)
+2022-09-29 15:34:32,309 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:32,504 - distributed.utils_perf - WARNING - full garbage collections took 19% CPU time recently (threshold: 10%)
+2022-09-29 15:34:32,576 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:32,963 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:33,046 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:33,131 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:34,427 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:35,006 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180531.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:34:47,083 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:34:47,544 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:53,533 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:34:53,705 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:34:53,852 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:54,045 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:34:54,155 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:54,194 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:34:54,242 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:54,486 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:54,768 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:54,860 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:34:55,079 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:55,139 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:55,396 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:55,680 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:55,775 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:55,870 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:34:56,128 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:34:56,516 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:56,608 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:56,630 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:56,860 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:57,187 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:34:57,304 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:57,562 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:34:57,780 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:34:58,320 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180630.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:35:08,234 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:13,622 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:17,297 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:17,299 - distributed.utils_perf - WARNING - full garbage collections took 19% CPU time recently (threshold: 10%)
+2022-09-29 15:35:17,571 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:17,648 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:35:17,885 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:35:18,175 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:35:18,415 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:35:18,524 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:18,621 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:18,662 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:18,669 - distributed.utils_perf - WARNING - full garbage collections took 19% CPU time recently (threshold: 10%)
+2022-09-29 15:35:19,045 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:19,056 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:35:19,448 - distributed.utils_perf - WARNING - full garbage collections took 19% CPU time recently (threshold: 10%)
+2022-09-29 15:35:19,504 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:35:19,737 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:35:19,872 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:35:19,925 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:35:20,308 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:35:20,503 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:35:20,830 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:35:21,243 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:35:21,566 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:35:21,642 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:35:21,775 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:35:22,304 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+2022-09-29 15:35:22,559 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180701.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:35:29,173 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:35:30,455 - distributed.utils_perf - WARNING - full garbage collections took 17% CPU time recently (threshold: 10%)
+2022-09-29 15:35:30,467 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:35:30,919 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:35:31,631 - distributed.utils_perf - WARNING - full garbage collections took 18% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180714.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:35:36,900 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:35:36,905 - distributed.utils_perf - WARNING - full garbage collections took 16% CPU time recently (threshold: 10%)
+2022-09-29 15:35:37,185 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180715.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:35:42,743 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180726.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:35:57,248 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:36:08,206 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:20,490 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:20,577 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:20,581 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:20,584 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:36:20,584 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:20,699 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:20,787 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:23,442 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:23,507 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:23,799 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:26,327 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:26,644 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:27,335 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:27,479 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180816.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:36:45,729 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:45,847 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:45,996 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:46,117 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:46,120 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:46,260 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:46,433 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:46,539 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:46,698 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:46,974 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:47,014 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:47,266 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:47,542 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:47,843 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:47,918 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:48,167 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:48,562 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:48,597 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:48,723 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:48,898 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:48,951 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:49,351 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:49,358 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:49,487 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:49,646 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:50,103 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:36:50,341 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:50,578 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:50,708 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:36:50,875 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:36:51,837 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180817.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:36:59,862 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:00,083 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:16,118 - distributed.utils_perf - WARNING - full garbage collections took 11% CPU time recently (threshold: 10%)
+2022-09-29 15:37:23,640 - distributed.utils_perf - WARNING - full garbage collections took 11% CPU time recently (threshold: 10%)
+2022-09-29 15:37:23,675 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:23,680 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:23,687 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:23,700 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:24,295 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:24,344 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:24,682 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:25,073 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:25,324 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:25,375 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:25,641 - distributed.utils_perf - WARNING - full garbage collections took 11% CPU time recently (threshold: 10%)
+2022-09-29 15:37:25,696 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:25,716 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:25,720 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:25,721 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:26,132 - distributed.utils_perf - WARNING - full garbage collections took 11% CPU time recently (threshold: 10%)
+2022-09-29 15:37:26,176 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:26,196 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:27,275 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:27,509 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:27,566 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:27,743 - distributed.utils_perf - WARNING - full garbage collections took 11% CPU time recently (threshold: 10%)
+2022-09-29 15:37:27,885 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:28,291 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:28,580 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:28,666 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:28,984 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:29,449 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:29,721 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:30,077 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:30,182 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:30,205 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:30,578 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:30,703 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:31,411 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:32,164 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:32,413 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:32,564 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:32,890 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:33,088 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:33,150 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:33,307 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:35,005 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180819.zarr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-29 15:37:43,372 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:49,658 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:52,542 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:52,546 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:53,035 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:53,036 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:53,047 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:53,058 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:53,385 - distributed.utils_perf - WARNING - full garbage collections took 12% CPU time recently (threshold: 10%)
+2022-09-29 15:37:53,701 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:53,724 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:53,946 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:54,028 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:54,218 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:54,293 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:54,480 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:54,605 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:54,828 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:55,245 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+2022-09-29 15:37:55,455 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:55,475 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:55,936 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:56,438 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:56,811 - distributed.utils_perf - WARNING - full garbage collections took 13% CPU time recently (threshold: 10%)
+2022-09-29 15:37:56,956 - distributed.utils_perf - WARNING - full garbage collections took 14% CPU time recently (threshold: 10%)
+2022-09-29 15:37:57,101 - distributed.utils_perf - WARNING - full garbage collections took 15% CPU time recently (threshold: 10%)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done with:  ot_output_20180820.zarr
 </pre></div>
 </div>
 </div>
@@ -2812,198 +3123,29 @@ if (window.Jupyter !== undefined) {
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="../_images/plot-ots-in-domain_14_1.png" src="../_images/plot-ots-in-domain_14_1.png" />
+<img alt="../_images/plot-ots-in-domain_16_1.png" src="../_images/plot-ots-in-domain_16_1.png" />
 </div>
 </div>
 <p>Let’s export this to a file!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">station</span> <span class="o">=</span> <span class="s1">&#39;KLOT&#39;</span>
+<span class="n">file</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="s1">.csv&#39;</span>
+<span class="n">file</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;KLOT.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;scan_type_sgpxsaprcmacsecI6.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="look-at-one-of-the-radar-scans">
-<h3>Look at one of the Radar Scans<a class="headerlink" href="#look-at-one-of-the-radar-scans" title="Permalink to this headline">¶</a></h3>
-<p>Grab the first elevation, and extract gate lats and lons</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radar</span> <span class="o">=</span> <span class="n">pyart</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">radar_files</span><span class="p">[</span><span class="mi">40</span><span class="p">])</span>
-<span class="n">subset</span> <span class="o">=</span> <span class="n">radar</span><span class="o">.</span><span class="n">extract_sweeps</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">,</span> <span class="n">alt</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">get_gate_lat_lon_alt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x34dad4a90&gt;
-</pre></div>
-</div>
-<img alt="../_images/plot-ots-in-domain_21_1.png" src="../_images/plot-ots-in-domain_21_1.png" />
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="plot-the-intersection-of-the-two">
-<h2>Plot the Intersection of the Two<a class="headerlink" href="#plot-the-intersection-of-the-two" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minlon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">97.7</span>
-<span class="n">maxlon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">96.4</span>
-<span class="n">minlat</span> <span class="o">=</span> <span class="mf">35.9</span>
-<span class="n">maxlat</span> <span class="o">=</span> <span class="mf">36.8</span>
-
-<span class="n">subset_ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">ds</span><span class="o">.</span><span class="n">latitude</span> <span class="o">&gt;=</span> <span class="n">minlat</span><span class="p">)</span> <span class="o">&amp;</span>
-                     <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">latitude</span> <span class="o">&lt;=</span> <span class="n">maxlat</span><span class="p">)</span> <span class="o">&amp;</span>
-                     <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">longitude</span> <span class="o">&gt;=</span> <span class="n">minlon</span><span class="p">)</span> <span class="o">&amp;</span>
-                     <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">longitude</span> <span class="o">&lt;=</span> <span class="n">maxlon</span><span class="p">)</span>
-                    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ot_id_number</span> <span class="o">=</span> <span class="n">subset_ds</span><span class="o">.</span><span class="n">ot_id_number</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">:</span>
-    <span class="n">single_time</span> <span class="o">=</span> <span class="n">ot_id_number</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">single_time</span><span class="p">)):</span>
-        <span class="k">continue</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Radar Scan Area&#39;</span><span class="p">)</span>
-    <span class="n">single_time</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span>
-                      <span class="n">y</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
-                      <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> radar fixed angle: </span><span class="si">{</span><span class="n">subset</span><span class="o">.</span><span class="n">fixed_angle</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">minlon</span><span class="p">,</span> <span class="n">maxlon</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">minlat</span><span class="p">,</span> <span class="n">maxlat</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/plot-ots-in-domain_25_0.png" src="../_images/plot-ots-in-domain_25_0.png" />
-<img alt="../_images/plot-ots-in-domain_25_1.png" src="../_images/plot-ots-in-domain_25_1.png" />
-<img alt="../_images/plot-ots-in-domain_25_2.png" src="../_images/plot-ots-in-domain_25_2.png" />
-<img alt="../_images/plot-ots-in-domain_25_3.png" src="../_images/plot-ots-in-domain_25_3.png" />
-<img alt="../_images/plot-ots-in-domain_25_4.png" src="../_images/plot-ots-in-domain_25_4.png" />
-<img alt="../_images/plot-ots-in-domain_25_5.png" src="../_images/plot-ots-in-domain_25_5.png" />
-<img alt="../_images/plot-ots-in-domain_25_6.png" src="../_images/plot-ots-in-domain_25_6.png" />
-<img alt="../_images/plot-ots-in-domain_25_7.png" src="../_images/plot-ots-in-domain_25_7.png" />
-<img alt="../_images/plot-ots-in-domain_25_8.png" src="../_images/plot-ots-in-domain_25_8.png" />
-<img alt="../_images/plot-ots-in-domain_25_9.png" src="../_images/plot-ots-in-domain_25_9.png" />
-<img alt="../_images/plot-ots-in-domain_25_10.png" src="../_images/plot-ots-in-domain_25_10.png" />
-<img alt="../_images/plot-ots-in-domain_25_11.png" src="../_images/plot-ots-in-domain_25_11.png" />
-<img alt="../_images/plot-ots-in-domain_25_12.png" src="../_images/plot-ots-in-domain_25_12.png" />
-<img alt="../_images/plot-ots-in-domain_25_13.png" src="../_images/plot-ots-in-domain_25_13.png" />
-<img alt="../_images/plot-ots-in-domain_25_14.png" src="../_images/plot-ots-in-domain_25_14.png" />
-<img alt="../_images/plot-ots-in-domain_25_15.png" src="../_images/plot-ots-in-domain_25_15.png" />
-<img alt="../_images/plot-ots-in-domain_25_16.png" src="../_images/plot-ots-in-domain_25_16.png" />
-<img alt="../_images/plot-ots-in-domain_25_17.png" src="../_images/plot-ots-in-domain_25_17.png" />
-<img alt="../_images/plot-ots-in-domain_25_18.png" src="../_images/plot-ots-in-domain_25_18.png" />
-<img alt="../_images/plot-ots-in-domain_25_19.png" src="../_images/plot-ots-in-domain_25_19.png" />
-<img alt="../_images/plot-ots-in-domain_25_20.png" src="../_images/plot-ots-in-domain_25_20.png" />
-<img alt="../_images/plot-ots-in-domain_25_21.png" src="../_images/plot-ots-in-domain_25_21.png" />
-<img alt="../_images/plot-ots-in-domain_25_22.png" src="../_images/plot-ots-in-domain_25_22.png" />
-<img alt="../_images/plot-ots-in-domain_25_23.png" src="../_images/plot-ots-in-domain_25_23.png" />
-<img alt="../_images/plot-ots-in-domain_25_24.png" src="../_images/plot-ots-in-domain_25_24.png" />
-<img alt="../_images/plot-ots-in-domain_25_25.png" src="../_images/plot-ots-in-domain_25_25.png" />
-<img alt="../_images/plot-ots-in-domain_25_26.png" src="../_images/plot-ots-in-domain_25_26.png" />
-<img alt="../_images/plot-ots-in-domain_25_27.png" src="../_images/plot-ots-in-domain_25_27.png" />
-<img alt="../_images/plot-ots-in-domain_25_28.png" src="../_images/plot-ots-in-domain_25_28.png" />
-<img alt="../_images/plot-ots-in-domain_25_29.png" src="../_images/plot-ots-in-domain_25_29.png" />
-<img alt="../_images/plot-ots-in-domain_25_30.png" src="../_images/plot-ots-in-domain_25_30.png" />
-<img alt="../_images/plot-ots-in-domain_25_31.png" src="../_images/plot-ots-in-domain_25_31.png" />
-<img alt="../_images/plot-ots-in-domain_25_32.png" src="../_images/plot-ots-in-domain_25_32.png" />
-<img alt="../_images/plot-ots-in-domain_25_33.png" src="../_images/plot-ots-in-domain_25_33.png" />
-<img alt="../_images/plot-ots-in-domain_25_34.png" src="../_images/plot-ots-in-domain_25_34.png" />
-<img alt="../_images/plot-ots-in-domain_25_35.png" src="../_images/plot-ots-in-domain_25_35.png" />
-<img alt="../_images/plot-ots-in-domain_25_36.png" src="../_images/plot-ots-in-domain_25_36.png" />
-<img alt="../_images/plot-ots-in-domain_25_37.png" src="../_images/plot-ots-in-domain_25_37.png" />
-<img alt="../_images/plot-ots-in-domain_25_38.png" src="../_images/plot-ots-in-domain_25_38.png" />
-<img alt="../_images/plot-ots-in-domain_25_39.png" src="../_images/plot-ots-in-domain_25_39.png" />
-<img alt="../_images/plot-ots-in-domain_25_40.png" src="../_images/plot-ots-in-domain_25_40.png" />
-<img alt="../_images/plot-ots-in-domain_25_41.png" src="../_images/plot-ots-in-domain_25_41.png" />
-<img alt="../_images/plot-ots-in-domain_25_42.png" src="../_images/plot-ots-in-domain_25_42.png" />
-<img alt="../_images/plot-ots-in-domain_25_43.png" src="../_images/plot-ots-in-domain_25_43.png" />
-<img alt="../_images/plot-ots-in-domain_25_44.png" src="../_images/plot-ots-in-domain_25_44.png" />
-<img alt="../_images/plot-ots-in-domain_25_45.png" src="../_images/plot-ots-in-domain_25_45.png" />
-<img alt="../_images/plot-ots-in-domain_25_46.png" src="../_images/plot-ots-in-domain_25_46.png" />
-<img alt="../_images/plot-ots-in-domain_25_47.png" src="../_images/plot-ots-in-domain_25_47.png" />
-<img alt="../_images/plot-ots-in-domain_25_48.png" src="../_images/plot-ots-in-domain_25_48.png" />
-<img alt="../_images/plot-ots-in-domain_25_49.png" src="../_images/plot-ots-in-domain_25_49.png" />
-<img alt="../_images/plot-ots-in-domain_25_50.png" src="../_images/plot-ots-in-domain_25_50.png" />
-<img alt="../_images/plot-ots-in-domain_25_51.png" src="../_images/plot-ots-in-domain_25_51.png" />
-<img alt="../_images/plot-ots-in-domain_25_52.png" src="../_images/plot-ots-in-domain_25_52.png" />
-<img alt="../_images/plot-ots-in-domain_25_53.png" src="../_images/plot-ots-in-domain_25_53.png" />
-<img alt="../_images/plot-ots-in-domain_25_54.png" src="../_images/plot-ots-in-domain_25_54.png" />
-<img alt="../_images/plot-ots-in-domain_25_55.png" src="../_images/plot-ots-in-domain_25_55.png" />
-<img alt="../_images/plot-ots-in-domain_25_56.png" src="../_images/plot-ots-in-domain_25_56.png" />
-<img alt="../_images/plot-ots-in-domain_25_57.png" src="../_images/plot-ots-in-domain_25_57.png" />
-<img alt="../_images/plot-ots-in-domain_25_58.png" src="../_images/plot-ots-in-domain_25_58.png" />
-<img alt="../_images/plot-ots-in-domain_25_59.png" src="../_images/plot-ots-in-domain_25_59.png" />
-<img alt="../_images/plot-ots-in-domain_25_60.png" src="../_images/plot-ots-in-domain_25_60.png" />
-<img alt="../_images/plot-ots-in-domain_25_61.png" src="../_images/plot-ots-in-domain_25_61.png" />
-<img alt="../_images/plot-ots-in-domain_25_62.png" src="../_images/plot-ots-in-domain_25_62.png" />
-<img alt="../_images/plot-ots-in-domain_25_63.png" src="../_images/plot-ots-in-domain_25_63.png" />
-<img alt="../_images/plot-ots-in-domain_25_64.png" src="../_images/plot-ots-in-domain_25_64.png" />
-<img alt="../_images/plot-ots-in-domain_25_65.png" src="../_images/plot-ots-in-domain_25_65.png" />
-<img alt="../_images/plot-ots-in-domain_25_66.png" src="../_images/plot-ots-in-domain_25_66.png" />
-<img alt="../_images/plot-ots-in-domain_25_67.png" src="../_images/plot-ots-in-domain_25_67.png" />
-<img alt="../_images/plot-ots-in-domain_25_68.png" src="../_images/plot-ots-in-domain_25_68.png" />
-<img alt="../_images/plot-ots-in-domain_25_69.png" src="../_images/plot-ots-in-domain_25_69.png" />
-<img alt="../_images/plot-ots-in-domain_25_70.png" src="../_images/plot-ots-in-domain_25_70.png" />
-<img alt="../_images/plot-ots-in-domain_25_71.png" src="../_images/plot-ots-in-domain_25_71.png" />
-<img alt="../_images/plot-ots-in-domain_25_72.png" src="../_images/plot-ots-in-domain_25_72.png" />
-<img alt="../_images/plot-ots-in-domain_25_73.png" src="../_images/plot-ots-in-domain_25_73.png" />
-<img alt="../_images/plot-ots-in-domain_25_74.png" src="../_images/plot-ots-in-domain_25_74.png" />
-<img alt="../_images/plot-ots-in-domain_25_75.png" src="../_images/plot-ots-in-domain_25_75.png" />
-<img alt="../_images/plot-ots-in-domain_25_76.png" src="../_images/plot-ots-in-domain_25_76.png" />
-<img alt="../_images/plot-ots-in-domain_25_77.png" src="../_images/plot-ots-in-domain_25_77.png" />
-<img alt="../_images/plot-ots-in-domain_25_78.png" src="../_images/plot-ots-in-domain_25_78.png" />
-<img alt="../_images/plot-ots-in-domain_25_79.png" src="../_images/plot-ots-in-domain_25_79.png" />
-<img alt="../_images/plot-ots-in-domain_25_80.png" src="../_images/plot-ots-in-domain_25_80.png" />
-<img alt="../_images/plot-ots-in-domain_25_81.png" src="../_images/plot-ots-in-domain_25_81.png" />
-<img alt="../_images/plot-ots-in-domain_25_82.png" src="../_images/plot-ots-in-domain_25_82.png" />
-<img alt="../_images/plot-ots-in-domain_25_83.png" src="../_images/plot-ots-in-domain_25_83.png" />
-<img alt="../_images/plot-ots-in-domain_25_84.png" src="../_images/plot-ots-in-domain_25_84.png" />
-<img alt="../_images/plot-ots-in-domain_25_85.png" src="../_images/plot-ots-in-domain_25_85.png" />
-<img alt="../_images/plot-ots-in-domain_25_86.png" src="../_images/plot-ots-in-domain_25_86.png" />
-<img alt="../_images/plot-ots-in-domain_25_87.png" src="../_images/plot-ots-in-domain_25_87.png" />
-<img alt="../_images/plot-ots-in-domain_25_88.png" src="../_images/plot-ots-in-domain_25_88.png" />
-<img alt="../_images/plot-ots-in-domain_25_89.png" src="../_images/plot-ots-in-domain_25_89.png" />
-<img alt="../_images/plot-ots-in-domain_25_90.png" src="../_images/plot-ots-in-domain_25_90.png" />
-<img alt="../_images/plot-ots-in-domain_25_91.png" src="../_images/plot-ots-in-domain_25_91.png" />
-<img alt="../_images/plot-ots-in-domain_25_92.png" src="../_images/plot-ots-in-domain_25_92.png" />
-<img alt="../_images/plot-ots-in-domain_25_93.png" src="../_images/plot-ots-in-domain_25_93.png" />
-<img alt="../_images/plot-ots-in-domain_25_94.png" src="../_images/plot-ots-in-domain_25_94.png" />
-<img alt="../_images/plot-ots-in-domain_25_95.png" src="../_images/plot-ots-in-domain_25_95.png" />
-<img alt="../_images/plot-ots-in-domain_25_96.png" src="../_images/plot-ots-in-domain_25_96.png" />
-<img alt="../_images/plot-ots-in-domain_25_97.png" src="../_images/plot-ots-in-domain_25_97.png" />
-<img alt="../_images/plot-ots-in-domain_25_98.png" src="../_images/plot-ots-in-domain_25_98.png" />
-<img alt="../_images/plot-ots-in-domain_25_99.png" src="../_images/plot-ots-in-domain_25_99.png" />
-<img alt="../_images/plot-ots-in-domain_25_100.png" src="../_images/plot-ots-in-domain_25_100.png" />
-<img alt="../_images/plot-ots-in-domain_25_101.png" src="../_images/plot-ots-in-domain_25_101.png" />
-<img alt="../_images/plot-ots-in-domain_25_102.png" src="../_images/plot-ots-in-domain_25_102.png" />
 </div>
 </div>
 </div>
